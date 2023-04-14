@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kmitra</title>
+    <link rel="icon" href="code.jpg">
+    <!-- <link rel="stylesheet" href="./clgproj.css"> -->
+    <style>*{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+    .head{
+        width: 100%;
+        height: 700px;
+        /* background-color: rgb(67, 166, 220); */
+        background-image: url(last.jpg);
+        background-repeat: no-repeat;
+        opacity: 0.9;
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* color: white; */
+    }
+    .logo{
+        margin-top: 3%;
+        height: 100px;
+        width: 420px;
+        /* background-color: blue; */
+        margin-left: 35%;
+        color: rgb(241, 216, 105);
+    }
+    .kmitra{
+        font-size: 58px;
+        margin-left: 20%;
+        font-family: cursive;
+    }
+    .box{
+        width: 100%;
+        height: 25%;
+        margin-top: 2%;
+        /* background-color: rgb(28, 177, 145); */
+        display: inline-block;
+        /* background-color: rgba(136, 115, 130, 0.1); */
+    }
+    .text{
+        margin-top: 2%;
+        text-align: 30%;
+        font-size: 25px;
+        line-height: 50px;
+        margin-left: 35%;
+        font-family: 'Times New Roman', Times, serif ;
+        font-weight: 500;
+        display: inline-block;
+        color: rgb(237, 242, 246); 
+        /* color: aliceblue; */
+    }
+    .bar{
+        text-align: 30%;
+        line-height: 50px;
+        margin-left: 1%;
+        font-family: 'Times New Roman', Times, serif ;
+        font-weight: 300;
+        display: inline-block;
+        /* width: 200px;
+        height: 30px; */
+        display: inline-block;
+    }
+    .btn:hover{
+        background-color: rgb(172, 244, 157);
+        color: rgb(70, 7, 58);
+        border-radius: 30px;
+    }
+    .srch{
+        width: 200px;
+        height: 30px;
+        outline-color: rgb(67, 3, 38);
+        border-radius: 2px;
+    }
+    .srch:hover{
+        border-radius: 7px;
+    }
+    .btn{
+        background-color: rgb(193, 230, 230);
+        width: 60px;
+        height: 29px;
+        cursor: pointer;
+        border-radius: 12px;
+        /* margin-left: 0%  */
+    }
+    .gif{
+        margin-top: 160px;
+        height: 45%;
+        width: 40%;
+        /* background-color: rgb(0, 208, 255); */
+        margin-top: 280 px;
+        margin-right: 20%;
+        margin-left: 65%;
+        background-size: cover;
+        overflow: hidden;
+        opacity: 1.2;
+    }
+    .output{
+        margin-top: 2%;
+        margin-left: 35%;
+        /* margin-bottom: 10%; */
+        /* background-color: rgb(67, 166, 220); */
+        width: 450px;
+        height: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 25px;
+        color: rgb(215, 210, 225);
+        /* color: aliceblue; */
+    }</style>
+</head>
+<body>
+    <!-- <h1>hello</h1> -->
+    <header class="head">
+        <div class="box">
+            <div class="logo">
+                <span class="kmitra">KMITRA</span>
+            </div>
+            <p class="text">Enter a Name:</p>
+            <header class="bar">
+                <div class="search" id="id">
+                    <input class="srch" type="text" placeholder="Enter Name" id="name">
+                    <button class="btn" onclick="json(isdata())" type="submit" value="Search">Submit </button>
+                    <!-- <input class="btn" type="button" id="submit" onclick="data()" value="Submit"> -->
+                </div>
+            </header>
+        </div>
+        <div class="output" id="out"></div>
+        <!-- <section class="gif">
+            <img class="pic" height="250px" src="./code.jpg">
+        </section> -->
+    </header>
+    <script >
+        function isdata(){
+            return document.getElementById("name").value;
+        }
+    function json(input){
+        const jsondata={
+            "KMIT_DATABASE": {
+                "Developers": [
+                    {
+                        "Name": "Anish",
+                        "Role": "Junior Developer",
+                        "Year": 2
+                    },
+                    {
+                        "Name": "Taahir",
+                        "Role": "Senior Developer",
+                        "Year": 3
+                    }
+                ],
+                "Writers": [
+                    {
+                        "Name": "Shuja",
+                        "Role": "Trainee Writer",
+                        "Year": 2
+                    },
+                    {
+                        "Name": "Taahir",
+                        "Role": "Writer",
+                        "Year": 3
+                    }
+                ],
+                "Designers": [
+                    {
+                        "Name": "Raju",
+                        "Role": "Designer",
+                        "Year": 2
+                    },
+                    {
+                        "Name": "Selmon Bhai",
+                        "Role": "Designer",
+                        "Year": 3 
+                    }
+                ]
+            }
+        }
+        for(i=0;i<2;i++){
+        develop=jsondata.KMIT_DATABASE.Developers[i];
+        design=jsondata.KMIT_DATABASE.Designers[i];
+        writer=jsondata.KMIT_DATABASE.Writers[i];
+        // console.log(develop.Name)
+        // console.log(writer.Name)
+
+        if(input==develop.Name && input==writer.Name){
+            let output=develop.Name+" is a "+develop.Role+" , "+writer.Role;
+            document.getElementById("out").innerText=output;
+            break;
+        }
+        if(input==design.Name && input==writer.Name){
+            let output=design.Name+" is a "+design.Role+ " , "+ writer.Role;
+            document.getElementById("out").innerText=output;
+            break;
+        }
+        if(input==develop.Name){
+            let output=develop.Name+" is a "+develop.Role;
+            // console.log(output)
+            document.getElementById("out").innerText=output;
+            break;
+        }
+        if(input==design.Name){
+            let output=design.Name+" is a "+design.Role;
+            document.getElementById("out").innerText=output;
+            break;
+        }
+        if(input==writer.Name){
+            let output=writer.Name+" is a "+writer.Role;
+            document.getElementById("out").innerText=output;
+            break;
+        }
+        else{
+            document.getElementById("out").innerText="Person not found in the data";}
+        }
+    }
+    </script>
+</body>
+</html>
